@@ -74,15 +74,14 @@ def timefromGPS(weeknum,weeksec):
 def configFemtomes(ser):
 
     setupcommands7  = ['unlogall\r',\
-                 # change the ntrip server config below
-                'NTRIPCONFIG NCOM1 client V1 vrs.sixents.com:8002 RTCM32_GNSS_RTK ke010 etav5s\r',\
+                'factoryset -fFRII-PLUSb.203.20\r',\
+                'NTRIPCONFIG NCOM1 client V1 47.116.1.17:2201 WX03 AceinnaRTK SIGEMZOOMQ1JDJI3\r',\
                 'SETINSPROFILE LAND_BASIC\r',\
                 # 'alignmentmode automatic\r',\
-                # change the lever arm and rotation angle below, according to your installation
-                'SETINSTRANSLATION ANT1 -0.28 1.43 0.88 0.20 0.20 0.20\r',\
+                'SETINSTRANSLATION ANT1 -0.28 1.43 1.0 0.20 0.20 0.20\r',\
                 'SETINSTRANSLATION DUALANT 0.7 0.0 0.0 0.20 0.20 0.20\r',\
                 'SETINSROTATION RBV 0.0 0.0 0.0 0.5 0.5 1.0\r',\
-                # 'SETINSTRANSLATION USER 0.1 1.0 0.0 0.20 0.20 0.20\r',\
+                # 'SETINSTRANSLATION USER 0.0 0.0 0.0 0.20 0.20 0.20\r',\
                 'INSCOMMAND ENABLE\r',\
                 'LOG RANGECMPB ONTIME 1\r',\
                 'LOG RAWEPHEMB ONCHANGED\r',\
@@ -93,16 +92,18 @@ def configFemtomes(ser):
                 'LOG BDSEPHEMERISB ONCHANGED\r',\
                 'LOG QZSSEPHEMERISB ONCHANGED\r',\
                 'LOG INSCONFIGB ONCHANGED\r',\
-                'LOG RAWIMUSXB ONNEW\r',\
                 'LOG versionb once\r',\
                 'LOG rxstatusb once\r',\
                 'LOG inspvaxb ontime 0.1\r',\
                 #'log bestposb ontime 0.1\r',\
                 'LOG bestgnssposb ontime 0.1\r',\
                 'LOG bestgnssvelb ontime 0.1\r',\
-                'LOG heading2 onchanged\r',\
-	'LOG gpgga ontime 0.2\r',\
-                'LOG heading ontime 0.2\r',\
+                #'LOG heading ontime 0.1\r',\
+                'LOG headingb ontime 0.1\r',\
+                #'LOG heading2 ontime 1\r',\
+                'LOG heading2b ontime 1\r',\
+                'LOG RAWIMUSXB ONNEW\r',\
+                'LOG gpgga ontime 0.1\r',\
                 'LOG NCOM1 gpgga ontime 1\r',\
                 'SAVECONFIG\r']
 
